@@ -1,4 +1,4 @@
-module github.com/ajmyyra/go-epp-fi
+module github.com/wecab/go-epp-fi
 
 go 1.14
 
