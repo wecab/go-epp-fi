@@ -88,7 +88,7 @@ func TestClient_CreateContact(t *testing.T) {
 		t.Fatalf("Connecting failed: %v\n", err)
 	}
 
-	corporateContact, err := epp.NewBusinessContact(
+	corporateContact, err := epp.NewFinnishBusinessContact(
 		5,
 		true,
 		"Special Test Oy",
@@ -135,7 +135,7 @@ func TestClient_UpdateContact(t *testing.T) {
 		t.Fatalf("Connecting failed: %v\n", err)
 	}
 
-	corporateContact, err := epp.NewBusinessContact(
+	corporateContact, err := epp.NewFinnishBusinessContact(
 		5,
 		true,
 		"Special Test Oy",
