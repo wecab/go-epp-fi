@@ -3,9 +3,9 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/ajmyyra/go-epp-fi/pkg/epp"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
+	"github.com/wecab/go-epp-fi/pkg/epp"
 	"os"
 	"text/tabwriter"
 )

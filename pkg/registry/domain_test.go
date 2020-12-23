@@ -1,7 +1,7 @@
 package registry
 
 import (
-	"github.com/ajmyyra/go-epp-fi/pkg/epp"
+	"github.com/wecab/go-epp-fi/pkg/epp"
 	"testing"
 	"time"
 )
@@ -239,7 +239,7 @@ func TestClient_UpdateDomainExtensions(t *testing.T) {
 		t.Fatalf("Connecting failed: %v\n", err)
 	}
 
-	newDnsSecRecord, err := epp.NewDomainDNSSecRecord(123456, 3, 1, "38EC35D5B3A34B44C39B", 257, 233, 1,">AQPJ////4Q==")
+	newDnsSecRecord, err := epp.NewDomainDNSSecRecord(123456, 3, 1, "38EC35D5B3A34B44C39B", 257, 233, 1, ">AQPJ////4Q==")
 
 	ext := epp.NewDomainDNSSecUpdateExtension([]epp.DomainDSData{newDnsSecRecord}, nil, true)
 

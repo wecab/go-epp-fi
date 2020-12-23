@@ -2,8 +2,8 @@ package registry
 
 import (
 	"encoding/xml"
-	"github.com/ajmyyra/go-epp-fi/pkg/epp"
 	"github.com/pkg/errors"
+	"github.com/wecab/go-epp-fi/pkg/epp"
 )
 
 func (s *Client) CheckDomains(domains ...string) ([]epp.ItemCheck, error) {
@@ -278,7 +278,7 @@ func (s *Client) TransferDomain(domain, transferKey string, newNameservers []str
 
 	if newNameservers != nil {
 		domainTransfer.Command.Transfer.DomainTransfer.Ns = &epp.DomainNameservers{
-			HostObj:  newNameservers,
+			HostObj: newNameservers,
 		}
 	}
 

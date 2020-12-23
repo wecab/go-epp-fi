@@ -2,10 +2,10 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/ajmyyra/go-epp-fi/pkg/registry"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/wecab/go-epp-fi/pkg/registry"
 	"io/ioutil"
 )
 
@@ -16,7 +16,7 @@ func getRegistryClient(cmd *cobra.Command) (*registry.Client, error) {
 	}
 	clientKey, err := ioutil.ReadFile(keyPath)
 	if err != nil {
-		return nil, errors.Wrap(err, "Unable to load client key from " + keyPath)
+		return nil, errors.Wrap(err, "Unable to load client key from "+keyPath)
 	}
 
 	certPath, err := getConfigString("CLIENT_CERT")
@@ -25,7 +25,7 @@ func getRegistryClient(cmd *cobra.Command) (*registry.Client, error) {
 	}
 	clientCert, err := ioutil.ReadFile(certPath)
 	if err != nil {
-		return nil, errors.Wrap(err, "Unable to load client certificate from " + certPath)
+		return nil, errors.Wrap(err, "Unable to load client certificate from "+certPath)
 	}
 
 	server, err := getConfigString("SERVER")

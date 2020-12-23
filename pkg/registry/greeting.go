@@ -2,8 +2,8 @@ package registry
 
 import (
 	"encoding/xml"
-	"github.com/ajmyyra/go-epp-fi/pkg/epp"
 	"github.com/pkg/errors"
+	"github.com/wecab/go-epp-fi/pkg/epp"
 )
 
 func (s *Client) Hello() (epp.Greeting, error) {

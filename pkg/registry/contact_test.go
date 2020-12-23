@@ -1,7 +1,7 @@
 package registry
 
 import (
-	"github.com/ajmyyra/go-epp-fi/pkg/epp"
+	"github.com/wecab/go-epp-fi/pkg/epp"
 	"testing"
 )
 
@@ -158,7 +158,6 @@ func TestClient_UpdateContact(t *testing.T) {
 	if err = eppTestClient.UpdateContact("C575808", corporateContact); err != nil {
 		t.Errorf("Contact update failed: %s", err)
 	}
-
 
 	if err = eppTestClient.Close(); err != nil {
 		t.Fatalf("Closing the client connection failed: %s", err)

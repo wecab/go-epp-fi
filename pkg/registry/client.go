@@ -4,9 +4,9 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"fmt"
-	"github.com/ajmyyra/go-epp-fi/pkg/epp"
 	"github.com/gemalto/flume"
 	"github.com/pkg/errors"
+	"github.com/wecab/go-epp-fi/pkg/epp"
 	"math/rand"
 	"net"
 	"time"
@@ -17,15 +17,15 @@ type Client struct {
 	tlsConfig      tls.Config
 	credentials    Credentials
 
-	conn           net.Conn
-	sendWaitTime   time.Duration
-	readTimeout    time.Duration
-	writeTimeout   time.Duration
+	conn         net.Conn
+	sendWaitTime time.Duration
+	readTimeout  time.Duration
+	writeTimeout time.Duration
 
-	log            flume.Logger
+	log flume.Logger
 
-	Greeting       epp.Greeting
-	LoggedIn       bool
+	Greeting epp.Greeting
+	LoggedIn bool
 }
 
 type Credentials struct {
@@ -34,11 +34,15 @@ type Credentials struct {
 }
 
 func NewRegistryClient(username, password, serverHost string, serverPort int, clientKey, clientCert []byte) (*Client, error) {
-	cert, err := tls.X509KeyPair(clientCert, clientKey)
-	if err != nil {
-		return nil, err
-	}
+	var cert tls.Certificate
+	var err error
 
+	if clientKey != nil && clientCert != nil {
+		cert, err = tls.X509KeyPair(clientCert, clientKey)
+		if err != nil {
+			return nil, err
+		}
+	}
 	registry := fmt.Sprintf("%s:%d", serverHost, serverPort)
 
 	client := Client{
@@ -64,7 +68,6 @@ func NewRegistryClient(username, password, serverHost string, serverPort int, cl
 		return nil, err
 	}
 	client.log = flume.New("FI EPP")
-
 
 	// For request ID generation
 	rand.Seed(time.Now().UnixNano())

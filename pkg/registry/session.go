@@ -2,8 +2,8 @@ package registry
 
 import (
 	"encoding/xml"
-	"github.com/ajmyyra/go-epp-fi/pkg/epp"
 	"github.com/pkg/errors"
+	"github.com/wecab/go-epp-fi/pkg/epp"
 )
 
 func (s *Client) Login() error {
@@ -63,7 +63,7 @@ func (s *Client) Logout() error {
 
 	logoutResult := epp.APIResult{}
 	if err = xml.Unmarshal(rawResult, &logoutResult); err != nil {
-		return errors.Wrap(err,"Unrecognised result body")
+		return errors.Wrap(err, "Unrecognised result body")
 	}
 
 	result := logoutResult.Response.Result
