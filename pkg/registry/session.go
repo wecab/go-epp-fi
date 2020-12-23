@@ -15,7 +15,7 @@ func (s *Client) Login() error {
 	loginDetails.Options.Lang = APILanguage
 
 	loginDetails.Svcs.ObjURI = []string{epp.DomainNamespace, epp.HostNamespace, epp.ContactNamespace}
-	loginDetails.Svcs.SvcExtension.ExtURI = []string{epp.SecDNSNamespace, epp.DomainExtNamespace}
+	loginDetails.Svcs.SvcExtension.ExtURI = []string{epp.SecDNSNamespace, epp.DomainExtNamespace, epp.RRPProxyKeySys, epp.RRPProxyQuery}
 
 	EPPLogin := epp.APILogin{}
 	EPPLogin.Xmlns = epp.EPPNamespace
