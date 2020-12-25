@@ -130,9 +130,9 @@ type ResponseInfoDisclosure struct {
 }
 
 type ContactInfo struct {
-	Xmlns      string                `xml:"xmlns:contact,attr"`
-	Id         string                `xml:"contact:id"`
-	Type       int                   `xml:"contact:type"`
+	Xmlns      string `xml:"xmlns:contact,attr"`
+	Id         string `xml:"contact:id"`
+	Type       int
 	PostalInfo ContactPostalInfoBase `xml:"contact:postalInfo"`
 	Phone      string                `xml:"contact:voice"`
 	Email      string                `xml:"contact:email"`
