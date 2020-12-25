@@ -218,11 +218,12 @@ func NewPersonContact(id, firstName, lastName, city, countryCode string, street 
 	return contact, nil
 }
 
-func NewBusinessContact(orgName, registerNumber, contactName, city, countryCode string, street []string, postalCode string, email, phone string) (ContactInfo, error) {
+func NewBusinessContact(id, orgName, registerNumber, contactName, city, countryCode string, street []string, postalCode string, email, phone string) (ContactInfo, error) {
 
 	contact := ContactInfo{
 		Xmlns: ContactNamespace,
 		Type:  1,
+		Id:    id,
 		PostalInfo: ContactPostalInfoBase{
 			PostalInfoType: "loc",
 			Name:           contactName,
