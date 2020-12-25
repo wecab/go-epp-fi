@@ -131,7 +131,7 @@ type ResponseInfoDisclosure struct {
 
 type ContactInfo struct {
 	Xmlns      string                `xml:"xmlns:contact,attr"`
-	Role       int                   `xml:"contact:role"`
+	Id         string                `xml:"contact:id"`
 	Type       int                   `xml:"contact:type"`
 	PostalInfo ContactPostalInfoBase `xml:"contact:postalInfo"`
 	Phone      string                `xml:"contact:voice"`
@@ -188,11 +188,12 @@ type ContactDisclosure struct {
 	Address int `xml:"contact:address"`
 }
 
-func NewPersonContact(firstName, lastName, city, countryCode string, street []string, postalCode string, email, phone string) (ContactInfo, error) {
+func NewPersonContact(id, firstName, lastName, city, countryCode string, street []string, postalCode string, email, phone string) (ContactInfo, error) {
 
 	contact := ContactInfo{
 		Xmlns: ContactNamespace,
 		Type:  0,
+		Id:    id,
 		PostalInfo: ContactPostalInfoBase{
 			PostalInfoType: "loc",
 			FirstName:      firstName,
